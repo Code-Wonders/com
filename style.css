@@ -1,0 +1,1354 @@
+/* === الخطوط === */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap');
+
+/* === القواعد العامة === */
+body {
+    margin: 0;
+    font-family: 'Poppins', 'Cairo', sans-serif;
+    background-color: #f8f9fa; /* خلفية بيضاء فاتحة */
+    color: #343a40; /* لون نص داكن مريح للعين */
+    text-align: center; /* ✅ التعديل: مركزة المحتوى الأساسي */
+    transition: all 0.4s ease;
+    font-size: 18px; /* حجم خط أساسي أصغر قليلاً */
+    line-height: 1.7;
+}
+
+/* ==================================== */
+/* ✅ إصلاح مشكلة الأزرار المزدوجة ومركزة العناوين */
+/* === تفعيل اللغة والاتجاه (RTL/LTR) === */
+
+/* قاعدة الإخفاء: إخفاء المحتوى الإنجليزي في وضع RTL وإخفاء العربي في وضع LTR */
+[dir="rtl"] .en,
+[dir="ltr"] .ar {
+    display: none !important; /* ✅ التعديل الرئيسي: استخدام !important لضمان الإخفاء التام للعنصر (بما في ذلك الأزرار) */
+}
+
+/* قاعدة الإظهار: (لا نحتاج لـ !important هنا، ولكن نحدد طبيعة عرض العنصر) */
+[dir="ltr"] .en,
+[dir="rtl"] .ar {
+    /* هذه القاعدة لا تُلغي قاعدة الإخفاء السابقة، فقط تضمن أن العنصر الظاهر له طريقة العرض الصحيحة */
+    /* نتركها فارغة أو نضع القواعد الخاصة مثل (display: inline-block) على العناصر المعنية */
+}
+
+/* توحيد عرض الأزرار لكي تعمل عليها قاعدة الإخفاء */
+.preview-btn {
+    display: inline-block; /* تأكيد أن الزر يظهر ككتلة مضمنة */
+}
+
+/* تصحيح عرض العناصر الـ inline مثل النصوص داخل الفقرات */
+[dir="rtl"] p .ar,
+[dir="ltr"] p .en,
+[dir="rtl"] span .ar,
+[dir="ltr"] span .en {
+    display: inline !important;
+}
+
+/* تحديد اتجاه النص العام في وضع RTL */
+[dir="rtl"] body {
+    direction: rtl;
+    text-align: center; /* ✅ التعديل: تغيير right إلى center لمركزة كل العناوين */
+}
+[dir="ltr"] body {
+    direction: ltr;
+    text-align: center; /* ✅ التعديل: تغيير left إلى center لتوحيد مركزة كل العناوين */
+}
+
+/* تصحيحات الترتيب لبعض العناصر */
+[dir="rtl"] .section-title::after {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+}
+[dir="rtl"] header {
+    text-align: center; /* العنوان يجب أن يبقى في المنتصف */
+}
+
+/* ==================================== */
+
+/* === شريط التنقل الرئيسي === */
+.navbar {
+    background-color: #ffffff; /* خلفية بيضاء */
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    z-index: 1000;
+}
+
+.flag-logo {
+    width: 270px; /* أصغر قليلاً */
+    height: 70px;
+}
+
+/* 🔹 الروابط الأساسية للديسكتوب */
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.3s ease;
+    flex-wrap: nowrap;
+}
+
+.nav-links a {
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff; /* لون أزرق جذاب للروابط */
+    font-weight: 600;
+    font-size: 1rem; /* أصغر قليلاً */
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #0056b3; /* لون أزرق أغمق عند التمرير */
+    text-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* === زر الهمبرجر === */
+.hamburger {
+    display: none;
+    font-size: 70px;
+    color: #007bff; /* لون أزرق */
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 2000;
+}
+[dir="rtl"] .hamburger { /* عكس الاتجاه في RTL */
+    left: 20px;
+    right: auto;
+}
+
+
+/* === الهيدر === */
+header {
+    margin-top: 70px; /* لتجنب التداخل مع الـ fixed navbar */
+    padding: 60px 0;
+    background: linear-gradient(135deg, #a8dcfb, #8bc3eb); /* تدرج أزرق فاتح */
+    color: #003c8f; /* لون أزرق داكن للنص */
+    border-bottom-left-radius: 10% 10%;
+    border-bottom-right-radius: 10% 10%;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* ظل لطيف */
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    width: 400px; /* تعديل حجم اللوجو */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 3.5rem; /* حجم أكبر للعنوان الرئيسي */
+    margin-bottom: 10px;
+    font-weight: 800;
+    color: #003c8f;
+}
+
+header .slogan {
+    font-size: 1.5rem;
+    color: #0056b3; /* لون أزرق متوسط للشعار */
+    margin-bottom: 30px;
+}
+
+/* === زر اللغة === */
+#lang-toggle {
+    position: absolute;
+    top: 15px;
+    right: 70px;
+    background: #ffc107; /* أصفر دافئ */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 1rem;
+    color: #003c8f; /* أزرق داكن */
+    z-index: 2000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+[dir="rtl"] #lang-toggle { /* عكس الاتجاه في RTL */
+    left: 70px;
+    right: auto;
+}
+
+#lang-toggle:hover {
+    background: #e0a800; /* أصفر أغمق عند التمرير */
+    transform: translateY(-2px);
+}
+
+/* في الموبايل */
+@media (max-width: 768px) {
+    #lang-toggle {
+        position: fixed;
+        top: 15px;
+        right: 80px;
+        z-index: 3000;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    [dir="rtl"] #lang-toggle { /* عكس الاتجاه في RTL */
+        left: 80px;
+        right: auto;
+    }
+}
+
+/* === زر البدء (ابدأ رحلتك الآن) === */
+.join-btn {
+    background: #28a745; /* أخضر جذاب */
+    color: #ffffff;
+    padding: 16px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block; /* لضمان عمل التحويل */
+}
+.join-btn:hover {
+    background: #218838; /* أخضر أغمق عند التمرير */
+    transform: scale(1.05); /* حركة تكبير بسيطة */
+}
+
+/* === الأقسام العامة === */
+.section {
+    padding: 80px 25px; /* زيادة البادينج قليلاً */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.9s ease-out; /* حركة أبطأ وأكثر سلاسة */
+    text-align: center; /* ✅ التعديل: مركزة العناصر داخل كل قسم */
+}
+
+.section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #003c8f; /* أزرق داكن للعناوين الرئيسية */
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center; /* ✅ التعديل: مركزة عنوان القسم */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #ffc107; /* خط أصفر تحت العنوان */
+    border-radius: 2px;
+}
+
+/* === الكروت العامة (تم توحيدها قدر الإمكان) === */
+@media (max-width: 768px) {
+    /* ... (تنسيقات الهوامش العامة والهامبرجر السابقة) ... */
+
+    /* 🎯 1. توحيد طريقة عرض حاويات الكروت (لضمان التكدس العمودي) */
+    .courses-grid,
+    .channel-cards-container,
+    .achievement-cards-container, /* للتأكد من كل حاويات الكروت */
+    .reasons-container { 
+        display: flex; 
+        flex-direction: column; /* ✅ الأهم: تكديس عمودي */
+        gap: 20px;
+        align-items: center; /* لضمان مركزة الكروت */
+    }
+
+    /* 🎯 2. ضبط الكروت نفسها */
+    .course-card,
+    .channel-card,
+    .card,
+    .reason-card, 
+    .counter-item {
+        width: 100% !important; /* ✅ الكرت يجب أن يأخذ كامل عرض الحاوية */
+        min-width: unset !important; /* ✅ إلغاء أي عرض أدنى يعيق التجاوب */
+        max-width: 350px; /* تحديد عرض أقصى لمنعها من أن تصبح عريضة جداً على الأجهزة اللوحية */
+        margin: 10px 0; 
+        box-sizing: border-box; /* لضمان أن البادينج لا يزيد من العرض الكلي */
+        padding: 20px; /* تصغير البادينج الداخلي للكروت على الموبايل */
+    }
+    
+    /* 3. تصغير حجم الخطوط داخل الكروت لتجنب تجاوز النص */
+    .course-card h3,
+    .channel-card h3,
+    .reason-card h3 {
+        font-size: 1.1rem; 
+    }
+    .channel-card button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* ... (باقي التنسيقات الأخرى للموبايل) ... */
+}
+/* ==================================== */
+/* 🏆 2. Achievements Section Styling  */
+/* ==================================== */
+.achievements-section {
+    background-color: #f0f8ff; /* أزرق فاتح جدًا للخلفية */
+    color: #003c8f;
+    padding: 80px 0;
+}
+
+.achievements-section .section-title {
+    color: #003c8f;
+}
+
+.counter-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.counter-item {
+    background: #ffffff;
+    border: 2px solid #a8dcfb; /* حدود زرقاء فاتحة */
+    width: 20%; /* 4 عناصر في الصف */
+    min-width: 220px;
+}
+
+.counter-item .icon {
+    font-size: 3.8em;
+    color: #ffc107; /* أصفر دافئ للأيقونات */
+    text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    margin-bottom: 15px;
+}
+
+.counter-item .number-wrapper {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: #003c8f;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.counter-item .unit-plus,
+.counter-item .unit-percent {
+    font-size: 0.5em;
+    font-weight: 900;
+    color: #007bff; /* أزرق للوحدات */
+    margin-top: 5px;
+    margin-inline-start: 5px;
+}
+
+.counter-item .counter-label {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 600;
+}
+
+/* ==================================== */
+/* 🤔 3. Why Choose Us Section Styling */
+/* ==================================== */
+.why-us-section {
+    background-color: #e9f5ff; /* أزرق أفتح قليلاً من الإنجازات */
+    color: #003c8f;
+    padding: 80px 0;
+}
+
+.why-us-section .section-title {
+    color: #003c8f;
+}
+
+.why-us-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reason-card {
+    background: #ffffff;
+    border: 2px solid #8bc3eb; /* حدود زرقاء متوسطة */
+    width: 22%; /* 4 عناصر في الصف */
+    min-width: 250px;
+}
+
+.reason-card .reason-icon {
+    font-size: 3.5em;
+    color: #ff7f50; /* لون برتقالي/مرجاني جذاب للأيقونات */
+    margin-bottom: 20px;
+}
+
+.reason-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #003c8f;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.reason-card p {
+    font-size: 1rem;
+    color: #6c757d; /* لون رمادي للنص */
+}
+
+/* ==================================== */
+/* 🔹 4. FAQ Section Styling (Accordion) */
+/* ==================================== */
+.faq-section {
+    background-color: #f8f9fa; /* خلفية بيضاء نقية */
+    padding: 80px 0;
+    text-align: center; /* ✅ التعديل: مركزة القسم */
+}
+
+.faq-section .section-title {
+    color: #003c8f;
+}
+
+.accordion-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: start; /* نتركها start هنا لأننا نريد المحتوى محاذاة لليمين/اليسار داخل الحاوية */
+}
+
+.accordion-item {
+    border: 1px solid #dee2e6; /* حدود رمادية فاتحة */
+    border-radius: 10px; /* حواف أكثر استدارة */
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.accordion-header {
+    background-color: #ffffff;
+    color: #343a40;
+    cursor: pointer;
+    padding: 18px 25px;
+    width: 100%;
+    border: none;
+    text-align: start; /* نتركها start هنا لتتبع اتجاه النص */
+    outline: none;
+    font-size: 1.15rem; /* حجم أكبر قليلاً */
+    font-weight: 600;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background-color: #e2f2ff; /* خلفية زرقاء فاتحة عند التمرير */
+}
+
+.accordion-header[aria-expanded="true"] {
+    background-color: #007bff; /* أزرق أساسي عند الفتح */
+    color: #ffffff;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.9em;
+    color: #6c757d; /* لون رمادي للأيقونة العادية */
+}
+
+.accordion-header[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+    color: #ffffff; /* أبيض عند الفتح */
+}
+
+.accordion-content {
+    background-color: #fdfdfd; /* أبيض ناصع للمحتوى */
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.accordion-content p {
+    padding: 15px 0;
+    color: #495057; /* لون رمادي داكن للنص */
+    line-height: 1.7;
+    margin: 0;
+}
+/* تم دمج ستايلات active في JS */
+
+/* تنسيق اتجاه النص للعربية في الأكورديون (لإرجاع النص لليمين داخل الكارت) */
+[dir="rtl"] .accordion-container {
+    text-align: right;
+}
+[dir="rtl"] .accordion-header {
+    text-align: right;
+    direction: rtl;
+}
+/* ==================================== */
+
+/* 📚 5. Courses Section Styling */
+/* ==================================== */
+.courses-section {
+    background-color: #e9f5ff; /* خلفية زرقاء فاتحة */
+    padding: 80px 0;
+}
+
+.courses-section .section-title {
+    color: #003c8f;
+}
+
+.courses-grid { /* تم توحيد اسم الكلاس مع الـ HTML */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.course-card {
+    background: #ffffff;
+    border: 2px solid #a8dcfb;
+    width: 28%; /* 3 كروت في الصف */
+    min-width: 280px;
+    text-align: center; /* ✅ التعديل: مركزة محتوى الكارت */
+}
+
+.course-card .course-icon { /* ستايل للأيقونة الـ Emoji */
+    font-size: 4em;
+    display: block;
+    margin: 10px auto 15px auto;
+}
+
+.course-card h3 {
+    font-size: 1.5rem;
+    color: #003c8f;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0 15px; /* بادينج للنص داخل الكارت */
+}
+
+.course-card p {
+    font-size: 0.95rem;
+    color: #555;
+    padding: 0 15px;
+    flex-grow: 1; /* لجعل الفقرة تملأ المساحة */
+}
+
+/* ==================================== */
+/* 💻 6. Calculator Section Styling */
+/* ==================================== */
+#calculator-section {
+    background: linear-gradient(145deg, #ffffff, #f0f8ff); /* تدرج أبيض لأزرق فاتح */
+    color: #003c8f;
+    border-radius: 20px;
+    width: 350px; /* عرض أكبر للآلة الحاسبة */
+    margin: 50px auto;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.calc-message {
+    display: none;
+    background: #4caf50; /* أخضر للرسائل الإيجابية */
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calc-message.show {
+    display: block;
+    opacity: 1;
+}
+
+#display {
+    width: calc(100% - 20px); /* عرض كامل مع مراعاة البادينج */
+    padding: 15px;
+    font-size: 2rem; /* حجم أكبر */
+    text-align: right;
+    margin-bottom: 20px;
+    border: 2px solid #007bff; /* حدود زرقاء */
+    border-radius: 10px;
+    background: #e2f2ff; /* خلفية زرقاء فاتحة جداً */
+    color: #003c8f;
+    font-weight: 700;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px; /* مسافة أكبر بين الأزرار */
+}
+
+#buttons button {
+    padding: 18px; /* بادينج أكبر للأزرار */
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    background: #007bff; /* أزرق أساسي للأزرار */
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+#buttons button:hover {
+    background: #0056b3; /* أزرق أغمق عند التمرير */
+    transform: translateY(-2px);
+}
+
+#buttons button.operator,
+#buttons button.eq-btn { /* توحيد الألوان للمشغلين والمساواة */
+    background: #ffc107; /* أصفر دافئ للمشغلين */
+    color: #003c8f;
+}
+
+#buttons button.operator:hover,
+#buttons button.eq-btn:hover {
+    background: #e0a800;
+}
+
+#clear {
+    background: #dc3545; /* أحمر للخلف */
+    grid-column: span 1; /* توحيد حجم زر C */
+}
+
+#clear:hover {
+    background: #c82333;
+}
+/* توحيد حجم زر المساواة مع باقي الأزرار */
+#buttons button#equals { 
+    grid-column: span 1;
+}
+/* ==================================== */
+/* 🤖 7. Robot Game Section Styling (مُعدَّل نهائي) */
+/* ==================================== */
+#robot-game {
+    background: linear-gradient(145deg, #e9f5ff, #cceeff); 
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    margin: 60px auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: 1.2rem;
+    color: #003c8f;
+    font-weight: 600;
+    border: 1px solid #a8dcfb;
+}
+
+.game-area {
+    width: 280px; 
+    height: 280px;
+    background: #ffffff;
+    border: 3px solid #007bff;
+    margin: 25px auto;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 15px rgba(0, 123, 255, 0.2);
+}
+
+#robot,
+#goal {
+    position: absolute;
+    font-size: 2.3rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px;
+}
+
+#robot {
+    /* 🔑 الأهم: إزالة top: 0; و left: 0; لترك الموضع للـ JavaScript بالكامل */
+    /* top: 0; */ 
+    /* left: 0; */ 
+    transition: transform 0.3s ease-out; 
+    color: #003c8f; 
+}
+/* ❌ التأكد من عدم وجود أي تنسيق RTL هنا يخص الموضع */
+
+#goal {
+    bottom: 0;
+    right: 0;
+    color: #ffc107;
+    /* ❗ ملاحظة: goal سيعمل بشكل صحيح مع bottom/right لأنه لا يتم تحريكه بالـ JS */
+}
+
+.controls {
+    margin-top: 30px;
+}
+
+.controls button {
+    background: #007bff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin: 8px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.controls button:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+/* ... (تنسيقات رسالة الفوز كما هي) ... */
+#game-message {
+    display: none; 
+    background: #28a745; 
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px; 
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#game-message.show {
+    display: block;
+    opacity: 1;
+}
+
+#game-message span {
+    display: inline;
+    text-align: center;
+}
+/* ==================================== */
+/* 📺 8. Channel Info Section Styling */
+/* ==================================== */
+.channel-section {
+    background-color: #f8f9fa; /* خلفية بيضاء نقية */
+    padding: 80px 0;
+}
+
+.channel-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px; /* توسيع العرض ليشمل 5 كروت */
+    margin: 0 auto;
+}
+
+.channel-card {
+    background: #ffffff;
+    border: 2px solid #a8dcfb;
+    width: calc(20% - 30px); /* 4 عناصر في الصف */
+    min-width: 250px;
+    text-align: center;
+    align-items: center;
+}
+
+.channel-card i {
+    font-size: 4em; /* حجم كبير للأيقونة */
+    color: #ff0000; /* أحمر يوتيوب */
+    margin-bottom: 20px;
+}
+
+.channel-card h3 {
+    font-size: 1.4rem;
+    color: #003c8f;
+    margin-bottom: 15px;
+    flex-grow: 1; /* لجعل العنوان يملأ المساحة */
+}
+
+.channel-card .preview-btn {
+    display: inline-block;
+    background: #ff0000; /* أحمر يوتيوب */
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.channel-card .preview-btn:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+/* ==================================== */
+/* 📞 9. Contact Info Section Styling */
+/* ==================================== */
+.contact-section {
+    background-color: #e9f5ff; /* خلفية زرقاء فاتحة */
+    padding: 80px 0;
+}
+
+/* === أيقونات التواصل الاجتماعي === */
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.contact-icon img {
+    width: 65px;
+    transition: 0.3s;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.contact-icon img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+}
+
+/* === واتساب عائم === */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    z-index: 100;
+}
+[dir="rtl"] .floating-whatsapp { /* عكس الاتجاه في RTL */
+    left: 25px;
+    right: auto;
+}
+.floating-whatsapp img {
+    width: 65px;
+    height: 65px;
+}
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* === الفوتر === */
+footer {
+    background: #003c8f; /* أزرق داكن للفوتر */
+    color: #ffffff;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================================== */
+/* 🌟 10. About Us Section Styling */
+/* ==================================== */
+.about-section {
+    padding: 80px 25px;
+    background-color: #f8f9fa; /* خلفية بيضاء نقية */
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    gap: 30px;
+}
+
+.about-content .card {
+    width: 100%; /* جعل الكارت يملأ الحاوية */
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #ffc107; /* حدود صفراء مميزة */
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: #495057;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.about-content .btn {
+    display: inline-block;
+    background: #007bff;
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.about-content .btn:hover {
+    background: #0056b3;
+}
+
+
+/* 📱 === ميديا كويري للموبايل والأجهزة اللوحية === */
+@media (max-width: 992px) {
+    .counter-item,
+    .reason-card,
+    .course-card,
+    .channel-card {
+        width: 45%; /* عنصران في السطر */
+    }
+    
+    header .logo {
+        width: 300px;
+    }
+    header h1 {
+        font-size: 3rem;
+    }
+    header .slogan {
+        font-size: 1.3rem;
+    }
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center; /* محاذاة الروابط للمنتصف في الموبايل */
+        background-color: #f8f9fa; /* خلفية بيضاء للقائمة المفتوحة */
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links a {
+        padding: 10px 0;
+        width: 90%;
+        color: #343a40; /* لون نص داكن للروابط */
+        border-bottom: 1px solid #f0f0f0;
+        text-align: center; /* محاذاة النص في المنتصف */
+    }
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    
+    header {
+        padding: 40px 10px;
+        margin-top: 60px; /* ضبط الهامش العلوي بعد الـ Navbar */
+    }
+
+    header .logo {
+        width: 250px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header .slogan {
+        font-size: 1.2rem;
+    }
+
+    #lang-toggle {
+        top: 10px;
+        right: 60px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    [dir="rtl"] #lang-toggle {
+        left: 60px;
+        right: auto;
+    }
+
+    .join-btn {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    .section-title::after {
+        width: 60px;
+        height: 3px;
+    }
+
+    .counter-item,
+    .reason-card,
+    .course-card,
+    .channel-card {
+        width: 90%; /* عنصر واحد في السطر */
+        min-width: 0;
+    }
+    
+    .counter-item .icon {
+        font-size: 3em;
+    }
+    .counter-item .number-wrapper {
+        font-size: 3rem;
+    }
+    .counter-item .counter-label {
+        font-size: 1rem;
+    }
+    .reason-card .reason-icon {
+        font-size: 3em;
+    }
+    .reason-card h3 {
+        font-size: 1.2rem;
+    }
+    .reason-card p {
+        font-size: 0.9rem;
+    }
+    .accordion-header {
+        font-size: 1rem;
+        padding: 15px 20px;
+    }
+    .accordion-content p {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+    .course-card .course-icon {
+        font-size: 3.5em;
+    }
+    .course-card h3 {
+        font-size: 1.3rem;
+    }
+    #calculator-section {
+        width: 90%;
+        padding: 25px;
+    }
+    #display {
+        font-size: 1.8rem;
+    }
+    #buttons button {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+    #robot-game {
+        width: 95%;
+        padding: 30px;
+    }
+    .game-area {
+        width: 250px;
+        height: 250px;
+    }
+    #robot, #goal {
+        font-size: 2.2rem;
+    }
+    .controls button {
+        font-size: 1.4rem;
+        padding: 10px 15px;
+    }
+    .contact-icon img {
+        width: 60px;
+    }
+}
+@media (max-width: 576px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+    .hamburger {
+        font-size: 1.8rem;
+        top: 12px;
+        right: 15px;
+    }
+    [dir="rtl"] .hamburger {
+        left: 15px;
+        right: auto;
+    }
+    #lang-toggle {
+        top: 12px;
+        right: 55px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    [dir="rtl"] #lang-toggle {
+        left: 55px;
+        right: auto;
+    }
+    header .logo {
+        width: 180px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    header .slogan {
+        font-size: 1rem;
+    }
+    .join-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    .section {
+        padding: 60px 15px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .counter-grid,
+    .why-us-grid,
+    .courses-grid,
+    .channel-grid,
+    .contact-grid {
+        gap: 20px;
+    }
+    .counter-item,
+    .reason-card,
+    .course-card,
+    .channel-card {
+        width: 95%;
+        min-width: unset;
+    }
+    .contact-icon img {
+        width: 50px;
+        padding: 8px;
+    }
+    .floating-whatsapp {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+        right: 15px;
+    }
+    [dir="rtl"] .floating-whatsapp {
+        left: 15px;
+        right: auto;
+    }
+    .floating-whatsapp img {
+        width: 55px;
+        height: 55px;
+    }
+    footer {
+        font-size: 0.8rem;
+        padding: 15px;
+    }
+    #calculator-section {
+        width: 95%;
+        padding: 20px;
+    }
+    #display {
+        font-size: 1.5rem;
+    }
+    #buttons button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    .game-area {
+        width: 200px;
+        height: 200px;
+    }
+    #robot, #goal {
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+    }
+    .controls button {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+}
+/* ==================================== */
+/* 📱 Mobile Responsiveness (Media Queries) */
+/* ==================================== */
+/* 💬 تنسيق أيقونة الواتساب العائمة (عام لكافة الأجهزة) */
+/* ==================================== */
+#whatsapp-button {
+    position: fixed;
+    bottom: 20px; /* 20 بكسل من الأسفل */
+    z-index: 9999; /* قيمة عالية لضمان ظهوره فوق كل شيء */
+    width: 60px; /* حجم الأيقونة */
+    height: 60px;
+    border-radius: 50%;
+    /* تنسيقات الألوان والظلال (يمكن إضافتها هنا) */
+}
+
+/* لضبط الموضع على اليمين في LTR واليسار في RTL */
+html[dir="ltr"] #whatsapp-button {
+    right: 20px; /* 20 بكسل من اليمين في LTR */
+    left: auto;
+}
+
+html[dir="rtl"] #whatsapp-button {
+    left: 20px; /* 20 بكسل من اليسار في RTL */
+    right: auto;
+}
+
+/* ==================================== */
+/* 📱 Mobile Responsiveness (Media Queries) */
+/* ==================================== */
+
+/* إعدادات سطح المكتب: إخفاء الهامبرجر افتراضياً */
+#hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    
+    /* 1. إظهار زر الهامبرجر وتنسيقه */
+    #hamburger {
+        display: block; /* ✅ إظهار الزر على الموبايل */
+        cursor: pointer;
+        font-size: 1.8rem;
+        z-index: 1001;
+        color: #007bff;
+        order: 1; /* لتحديد مكانه ضمن الهيدر */
+    }
+    
+    /* 2. توحيد الهوامش الأفقية العامة (Container Padding) */
+    .section, 
+    header,
+    nav {
+        /* إزالة الهامش الأفقي التلقائي وضبطه يدوياً */
+        padding-left: 5px !important;
+        padding-right: 15px !important;
+        /* توحيد الهوامش الرأسية */
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    /* 3. ضبط هوامش العنوان الرئيسي وتصغير الخط */
+    .section-title {
+        font-size: 1.8rem !important; /* تصغير حجم الخط */
+        margin-bottom: 20px;
+        margin-left: 0; 
+        margin-right: 0;
+    }
+    .robot-game-section p {
+        font-size: 0.9rem !important;
+    }
+
+    /* 4. تعديل تنسيق الـ Nav Links لتظهر كقائمة عمودية (قائمة الموبايل) */
+    #nav-links {
+        display: none; /* إخفاؤها مبدئياً */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* تحت الهيدر */
+        left: 0;
+        right: 0; /* لضمان تغطية كامل العرض */
+        background-color: #f8f9fa; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 10px 0;
+        text-align: center;
+        border-top: 1px solid #ddd;
+    }
+    
+    /* إظهار القائمة عند الضغط على الهامبرجر */
+    #nav-links.active {
+        display: flex;
+    }
+    #nav-links a {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    /* 5. التعامل مع تنسيق البطاقات (Stacking Cards) */
+    .achievement-cards-container, 
+    .courses-grid {
+        flex-direction: column; /* تكديس عمودي */
+        gap: 20px;
+    }
+    .achievement-card,
+    .course-card {
+        width: 100%; /* استخدام كامل العرض المتاح */
+        margin: 15px 0 !important;
+        min-width: unset; /* إلغاء أي عرض أدنى قد يعيق التجاوب */
+    }
+    
+    /* 6. تعديل حجم منطقة لعب الروبوت */
+    .robot-game-section .game-area {
+        width: 90vw !important; 
+        height: 90vw !important; 
+        max-width: 350px !important; 
+        max-height: 350px !important; 
+        margin: 0 auto; 
+    }
+    
+    /* 7. تصغير حجم الروبوت وأزرار التحكم لتناسب المنطقة الجديدة */
+    #robot, #goal {
+        font-size: 1.5rem; 
+        width: 40px; 
+        height: 40px;
+    }
+    .controls button {
+        padding: 8px; 
+        font-size: 1rem;
+    }
+}
+/* ==================================== */
+/* 🌐 إصلاح التمرير الأفقي الزائد */
+/* ==================================== */
+body {
+    /* 1. إزالة أي هوامش تلقائية قد يضيفها المتصفح */
+    margin: 0;
+    padding: 0;
+    /* 2. الأهم: منع تجاوز المحتوى الأفقياً */
+    /* هذا يضمن أن أي شيء يخرج عن عرض الشاشة يتم إخفاؤه */
+    overflow-x: hidden; 
+    width: 100%; /* ضمان أخذ كامل العرض */
+}
+
+html {
+    /* ضمان أن الـ root عنصر يأخذ العرض بالكامل */
+    width: 100%;
+    overflow-x: hidden; /* ضروري لبعض المتصفحات */
+}

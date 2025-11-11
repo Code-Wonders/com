@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"> <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Wonders Academy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/CDt32pWp/RjE4c3uMh184i+g9Gg0w/2xS6T5/XlB3I5e2K3f1h1o2v0x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="code.png" alt="Code Wonders Logo" class="logo" />
+        <h1>Code Wonders Academy</h1>
+        <p class="slogan en">Building a generation that builds the future</p>
+        <p class="slogan ar">نبني جيلاً… يصنع المستقبل!</p>
+
+        <a href="https://wa.me/201060572506" target="_blank" class="join-btn">
+            <span class="ar">ابدأ رحلتك الآن</span>
+            <span class="en">Start Your Journey Now</span>
+        </a>
+    </header>
+    
+    <nav class="navbar">
+        <img src="flag.png" alt="Logo" class="flag-logo">
+        
+        <div class="nav-links" id="nav-links">
+            
+            <a href="#achievements" class="en">Our Achievements</a>
+            <a href="#achievements" class="ar">إنجازاتنا</a>
+            <a href="#about" class="en">About Us</a>
+            <a href="#about" class="ar">من نحن</a>
+            <a href="#courses" class="en">Courses</a>
+            <a href="#courses" class="ar">كورساتنا</a>
+            <a href="#our-channel" class="en">Our Channel</a>
+            <a href="#our-channel" class="ar">قناتنا</a>
+            <a href="#why-us" class="en">Why Choose Us</a>
+            <a href="#why-us" class="ar">لماذا نحن</a>
+            <a href="#contact" class="en">Contact</a>
+            <a href="#contact" class="ar">تواصل معنا</a>
+        </div>
+        <button class="hamburger" id="hamburger">☰</button>
+        <button id="lang-toggle">AR</button>
+    </nav>
+
+    <section id="achievements" class="achievements-section section">
+        <div class="container">
+            <h2 class="section-title ar">إنجازاتنا: أرقام تحكي قصة نجاح</h2>
+            <h2 class="section-title en">Our Achievements: Numbers Tell Our Story</h2>
+
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <i class="fa-brands fa-youtube icon"></i>
+                    <div class="number-wrapper">
+                        <span class="counter-number" data-target="190000" data-unit="views">0</span>
+                        <span class="unit-plus">+</span>
+                    </div>
+                    <p class="counter-label ar">مشاهدة على يوتيوب</p>
+                    <p class="counter-label en">YouTube Views</p>
+                </div>
+
+                <div class="counter-item">
+                    <i class="fa-solid fa-clock icon"></i>
+                    <div class="number-wrapper">
+                        <span class="counter-number" data-target="8000" data-unit="hours">0</span>
+                        <span class="unit-plus">+</span>
+                    </div>
+                    <p class="counter-label ar">ساعة تعليمية مسجلة</p>
+                    <p class="counter-label en">Educational Hours</p>
+                </div>
+
+                <div class="counter-item">
+                    <i class="fa-solid fa-code icon"></i>
+                    <div class="number-wrapper">
+                        <span class="counter-number" data-target="100" data-unit="projects">0</span>
+                        <span class="unit-plus">+</span>
+                    </div>
+                    <p class="counter-label ar">مشروع برمجي مُنجز</p>
+                    <p class="counter-label en">Completed Projects</p>
+                </div>
+
+                <div class="counter-item">
+                    <i class="fa-solid fa-heart icon"></i>
+                    <div class="number-wrapper">
+                        <span class="counter-number" data-target="98" data-unit="percent">0</span>
+                        <span class="unit-percent">%</span>
+                    </div>
+                    <p class="counter-label ar">رضا وثقة أولياء الأمور</p>
+                    <p class="counter-label en">Parents Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="section about-section">
+        <h2 class="section-title en">About Us: Our Founder</h2>
+        <h2 class="section-title ar">من نحن: مؤسسة الأكاديمية</h2>
+        <div class="about-content"> <div class="card ar">
+                <p>
+                    تأسست أكاديمية عجائب البرمجة على يد المهندسة رانيا عبدالرحمن، مدربة برمجة شغوفة بتعليم الأطفال مهارات البرمجة والتفكير المنطقي بطريقة ممتعة وسهلة. تهدف الأكاديمية إلى غرس حب التكنولوجيا والإبداع في عقول الأطفال منذ الصغر.
+                </p>
+                <a href="https://ranyaabdelrahman.github.io" target="_blank" class="btn">ملفي الشخصي</a>
+            </div>
+
+            <div class="card en">
+                <p>
+                    Code Wonders Academy was founded by Engineer Rania Abdelrahman, a passionate programming instructor dedicated to teaching children coding skills and logical thinking in a fun and simple way. The academy aims to instill a love for technology and creativity in children’s minds from an early age.
+                </p>
+                <a href="https://ranyaabdelrahman.github.io" target="_blank" class="btn">My Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="section courses-section">
+        <h2 class="en section-title">🎓Our Courses</h2>
+        <h2 class="ar section-title">🎓كورساتنا</h2>
+
+        <div class="cards-container courses-grid"> <div class="course-card">
+                <span class="course-icon">💻</span>
+                <h3 class="en">Programming Basics</h3>
+                <h3 class="ar">أساسيات البرمجة</h3>
+                <p class="en">Start your coding journey<br><b>Age:</b> 7–12</p>
+                <p class="ar">ابدأ رحلتك في عالم الكود<br><b>الفئة العمرية:</b> 7–12 سنة</p>
+            </div>
+
+            <div class="course-card">
+                <span class="course-icon">🐍</span>
+                <h3 class="en">Python Basics</h3>
+                <h3 class="ar">أساسيات بايثون</h3>
+                <p class="en">Discover the world of Python programming<br><b>Age:</b> 9–14</p>
+                <p class="ar">اكتشف عالم برمجة بايثون<br><b>الفئة العمرية:</b> 9–14 سنة</p>
+            </div>
+
+            <div class="course-card">
+                <span class="course-icon">📱</span>
+                <h3 class="en">Mobile Applications</h3>
+                <h3 class="ar">تطبيقات الموبايل</h3>
+                <p class="en">Create your own simple mobile apps from scratch!<br><b>Age:</b> 9–14</p>
+                <p class="ar">أنشئ تطبيقاتك البسيطة من الصفر!<br><b>الفئة العمرية:</b> 9–14 سنة</p>
+            </div>
+
+            <div class="course-card">
+                <span class="course-icon">🌐</span>
+                <h3 class="en">Web Development</h3>
+                <h3 class="ar">تطوير الويب</h3>
+                <p class="en">Build your first website with colorful designs and animations!<br><b>Age:</b> 9–14</p>
+                <p class="ar">اصنع أول موقع إلكتروني لك بتصميمات وألوان متحركة!<br><b>الفئة العمرية:</b> 9–14 سنة</p>
+            </div>
+
+            <div class="course-card">
+                <span class="course-icon">🤖</span>
+                <h3 class="en">Artificial Intelligence</h3>
+                <h3 class="ar">الذكاء الاصطناعي</h3>
+                <p class="en">Dive into the world of Artificial Intelligence<br><b>Age:</b> 9–14</p>
+                <p class="ar">انطلق في عالم الذكاء الاصطناعي المدهش<br><b>الفئة العمرية:</b> 9–14 سنة</p>
+            </div>
+
+            <div class="course-card">
+                <span class="course-icon">📊</span>
+                <h3 class="en">Data Analysis</h3>
+                <h3 class="ar">تحليل البيانات</h3>
+                <p class="en">Learn how to explore and visualize data using Excel and Power BI<br><b>Age:</b> 9–14</p>
+                <p class="ar">تعلم كيفية استكشاف البيانات وتمثيلها بصريًا باستخدام Excel وPower BI<br><b>الفئة العمرية:</b> 9–14 سنة</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-channel" class="section channel-section">
+        <h2 class="en section-title">📺 Our Channel </h2>
+        <h2 class="ar section-title">📺 قناتنا </h2>
+
+        <div class="channel-gallery channel-grid"> <div class="channel-card">
+                <h3 class="en">Coding Course For Kids</h3>
+                <h3 class="ar">دورة البرمجة للأطفال</h3>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtS77P5q-dP3y1R0wchaSmn" target="_blank" class="preview-btn en">Preview</a>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtS77P5q-dP3y1R0wchaSmn" target="_blank" class="preview-btn ar">معاينة</a>
+            </div>
+
+            <div class="channel-card">
+                <h3 class="en">Python Projects</h3>
+                <h3 class="ar">مشروعات بايثون</h3>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtvoDPbarf_dKt2uTGgPsHP" target="_blank" class="preview-btn en">Preview</a>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtvoDPbarf_dKt2uTGgPsHP" target="_blank" class="preview-btn ar">معاينة</a>
+            </div>
+
+            <div class="channel-card">
+                <h3 class="en">Data Analysis Projects</h3>
+                <h3 class="ar">مشروعات تحليل البيانات</h3>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNvj0-1CIAdvLJKpkcD2ggJ2" target="_blank" class="preview-btn en">Preview</a>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNvj0-1CIAdvLJKpkcD2ggJ2" target="_blank" class="preview-btn ar">معاينة</a>
+            </div>
+
+            <div class="channel-card">
+                <h3 class="en">PictoBlox Projects</h3>
+                <h3 class="ar">مشروعات PictoBlox</h3>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtF4FJqqbjqxDAjz_IKmCgA" target="_blank" class="preview-btn en">Preview</a>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtF4FJqqbjqxDAjz_IKmCgA" target="_blank" class="preview-btn ar">معاينة</a>
+            </div>
+
+            <div class="channel-card">
+                <h3 class="en">App Lab Projects</h3>
+                <h3 class="ar">مشروعات App Lab</h3>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtRXofCuOze7ngDmoeyCrJl" target="_blank" class="preview-btn en">Preview</a>
+                <a href="https://www.youtube.com/playlist?list=PLTxoY-6rzKNtRXofCuOze7ngDmoeyCrJl" target="_blank" class="preview-btn ar">معاينة</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator-section" class="section calculator-section">
+        <h2>
+            <span class="ar">🔢 الآلة الحاسبة الذكية</span>
+            <span class="en">🔢 Smart Calculator</span>
+        </h2>
+
+        <p>
+            <span class="ar">احسب بسرعة وتعلم كيف تفكر مثل المبرمج!</span>
+            <span class="en">Calculate fast and think like a programmer!</span>
+        </p>
+
+        <div id="calc-message" class="calc-message ar">✅ العملية تمت بنجاح!</div>
+        <div id="calc-message-en" class="calc-message en">✅ Operation completed successfully!</div>
+
+        <input type="text" id="display" readonly />
+
+        <div id="buttons">
+            <button class="num-btn">7</button>
+            <button class="num-btn">8</button>
+            <button class="num-btn">9</button>
+            <button class="op-btn operator">/</button> <button class="num-btn">4</button>
+            <button class="num-btn">5</button>
+            <button class="num-btn">6</button>
+            <button class="op-btn operator">*</button> <button class="num-btn">1</button>
+            <button class="num-btn">2</button>
+            <button class="num-btn">3</button>
+            <button class="op-btn operator">-</button> <button class="num-btn">0</button>
+            <button class="num-btn">.</button>
+            <button id="equals" class="eq-btn">=</button>
+            <button class="op-btn operator">+</button> <button id="clear" class="clear-btn">C</button>
+        </div>
+    </section>
+
+<section id="robot-game" class="section robot-game-section">
+    <h2 class="en section-title">Help the Robot! 🤖</h2>
+    <h2 class="ar section-title">ساعد الروبوت! 🤖 </h2>
+    <p class="en">Use the arrows to move the robot to the star!</p>
+    <p class="ar">استخدم الأسهم لتحريك الروبوت حتى يوصل للنجمة!</p>
+
+    <div class="game-area">
+        <div id="robot">🤖</div>
+        <div id="goal">⭐</div>
+    </div>
+
+    <div id="game-message">
+        <span class="en">Congratulations! Robot Reached the Goal!</span>
+        <span class="ar">تهانينا! وصل الروبوت إلى الهدف بنجاح!</span>
+    </div>
+
+    <div class="controls">
+        <button id="up">⬆️</button>
+        <div>
+            <button id="left">⬅️</button>
+            <button id="down">⬇️</button>
+            <button id="right">➡️</button>
+        </div>
+    </div>
+    
+    <button id="reset-game" style="background: #007bff; color: white; border: none; padding: 10px 20px; margin-top: 20px; border-radius: 8px; cursor: pointer; font-weight: bold;">
+        <span class="en">Reset Game</span>
+        <span class="ar">إعادة اللعب</span>
+    </button>
+</section>
+    
+    <section id="why-us" class="section why-us-section">
+        <div class="container">
+            <h2 class="section-title ar">لماذا نختار أكاديمية Code Wonders؟</h2>
+            <h2 class="section-title en">Why Choose Code Wonders Academy?</h2>
+
+            <div class="why-us-grid">
+                <div class="reason-card">
+                    <i class="fas fa-project-diagram reason-icon"></i>
+                    <h3 class="ar">💡 منهج متدرج بـ 100% تطبيق عملي</h3>
+                    <h3 class="en">💡 Graduated Practical Methodology</h3>
+                    <p class="ar">منهج صُمم بخبرة: تدرج من الصفر إلى الاحتراف بمشاريع عملية بعد كل درس، لبناء محفظة مشاريع قوية تثبت كفاءته.</p>
+                    <p class="en">Our expert curriculum takes children from scratch to proficiency with hands-on projects after every lesson, building a strong portfolio.</p>
+                </div>
+
+                <div class="reason-card">
+                    <i class="fas fa-gamepad reason-icon"></i>
+                    <h3 class="ar">🕹️ التعلم عن طريق اللعب والإبداع</h3>
+                    <h3 class="en">🕹️ Learning Through Play & Creativity</h3>
+                    <p class="ar">نستخدم الألعاب والمشاريع التفاعلية وأحدث أدوات البرمجة التعليمية لجعل التعلم ممتعًا ومُلهِمًا كاللعب.</p>
+                    <p class="en">We utilize games, interactive projects, and modern educational coding tools to make learning fun, inspiring, and highly engaging.</p>
+                </div>
+
+                <div class="reason-card">
+                    <i class="fas fa-rocket reason-icon"></i>
+                    <h3 class="ar">🌐 إعداد لـ "مهندس المستقبل"</h3>
+                    <h3 class="en">🌐 Preparing the Future Engineer</h3>
+                    <p class="ar">نركز على أهم التخصصات والأدوات (الذكاء الاصطناعي، تحليل البيانات، الويب) لبناء جيل قادر على مواكبة لغات عمل المستقبل.</p>
+                    <p class="en">Focusing on key future disciplines (AI, Data Analysis, Web Dev) to prepare a generation capable of mastering tomorrow's working languages.</p>
+                </div>
+
+                <div class="reason-card">
+                    <i class="fas fa-book-open reason-icon"></i>
+                    <h3 class="ar">📘 كتب ومصادر تعليمية خاصة</h3>
+                    <h3 class="en">📘 Exclusive Course Books & Resources</h3>
+                    <p class="ar">يحصل كل طالب على كتاب خاص لكل كورس يحتوي على المحتوى كاملاً، لضمان استمرارية التعلم والمراجعة المنزلية.</p>
+                    <p class="en">Each student receives an exclusive course book containing the full content, ensuring continuity of learning and effective home review.</p>
+                </div>
+
+                <div class="reason-card">
+                    <i class="fas fa-brain reason-icon"></i>
+                    <h3 class="ar">📈 تنمية التفكير المنطقي وحل المشكلات</h3>
+                    <h3 class="en">📈 Enhanced Logical Thinking</h3>
+                    <p class="ar">تدريب عقل الطفل على تحليل المشكلات المعقدة وحلها بشكل منطقي ومنظم، وهي مهارة حياتية أساسية.</p>
+                    <p class="en">Training the child's mind to analyze and solve complex problems logically and systematically—an essential life skill.</p>
+                </div>
+
+                <div class="reason-card">
+                    <i class="fas fa-comments reason-icon"></i>
+                    <h3 class="ar">💬 توجيه ودعم مُستمر ومُتخصص</h3>
+                    <h3 class="en">💬 Continuous Specialized Support</h3>
+                    <p class="ar">متابعة شخصية ودعم مستمر من المدربين المتخصصين، للحفاظ على حماس الطفل وإجابته على جميع استفساراته.</p>
+                    <p class="en">Personal follow-up and continuous support from our expert instructors to keep the child motivated and address all their questions.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <h2 class="section-title ar">🔹 الأسئلة الشائعة</h2>
+            <h2 class="section-title en">🔹 Frequently Asked Questions (FAQ)</h2>
+
+            <div class="accordion-container">
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="ar">1️⃣ ما هو العمر المناسب لتعلم البرمجة؟</span>
+                        <span class="en">1️⃣ What is the right age to start coding?</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="ar">البرمجة مناسبة للأطفال من سن **7 سنوات وما فوق**. في Code Wonders، نصمم المحتوى بحيث يكون ممتعًا وبسيطًا للأطفال الصغار، مع أنشطة وألعاب تعليمية تناسب أعمارهم المختلفة.</p>
+                        <p class="en">Coding is suitable for children aged **7 years and older**. At Code Wonders, we design content to be fun and simple for young children, with learning activities and games appropriate for their different ages.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="ar">2️⃣ ما هو نظام تعليم البرمجة في Code Wonders للأطفال؟</span>
+                        <span class="en">2️⃣ What is the coding system at Code Wonders?</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="ar">نظامنا **تفاعلي** ويعتمد على **التعلم باللعب والمشاريع العملية**. يبدأ الأطفال بتعلم مفاهيم البرمجة الأساسية من خلال ألعاب وسحب وإفلات الكتل البرمجية، ثم يتدرجون إلى مشاريع أكثر تحديًا كلما تقدموا.</p>
+                        <p class="en">Our system is **interactive** and relies on **play-based learning and practical projects**. Children start by learning basic concepts through games and drag-and-drop coding blocks, then progress to more challenging projects.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="ar">3️⃣ ما الذي يتعلمه الأطفال في رحلتهم التعليمية مع البرمجة؟</span>
+                        <span class="en">3️⃣ What skills do children gain from coding?</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="ar">يتعلم الأطفال: **التفكير المنطقي**، **حل المشكلات**، **الإبداع**، والعمل على مشاريع صغيرة مثل تصميم الألعاب والرسوم المتحركة، بالإضافة إلى تطوير مهارات التعاون عند العمل الجماعي.</p>
+                        <p class="en">Children learn: **logical thinking**, **problem-solving**, **creativity**, and working on mini-projects like designing games and animations, in addition to developing collaboration skills in group work.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="ar">4️⃣ هل تطوير الألعاب جزء من البرمجة؟</span>
+                        <span class="en">4️⃣ Is game development part of the curriculum?</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="ar">نعم، تطوير الألعاب هو **جزء ممتع وأساسي** من تعلم البرمجة. في الأكاديمية، الأطفال يطبقون المفاهيم التي تعلموها لصنع ألعاب بسيطة، مما يجعل التعلم أكثر متعة وتطبيقًا عمليًا.</p>
+                        <p class="en">Yes, game development is a **fun and essential part** of learning to code. At the Academy, children apply concepts they've learned to build simple games, making learning more enjoyable and practical.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span class="ar">5️⃣ هل يجب أن يكون الطفل متفوقًا في الرياضيات لاستيعاب البرمجة؟</span>
+                        <span class="en">5️⃣ Does a child need to excel at math to learn coding?</span>
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="ar">لا، **البرمجة تعتمد على المنطق وحل المشكلات أكثر من الرياضيات المعقدة**. يمكن للأطفال تعلم البرمجة بمرح ونجاح حتى لو لم يكونوا متفوقين في الرياضيات.</p>
+                        <p class="en">No, **coding relies on logic and problem-solving more than complex mathematics**. Children can learn coding successfully and joyfully even if they do not excel at math.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section contact-section">
+        <h2 class="en section-title">📞 Contact Info</h2>
+        <h2 class="ar section-title">📞 معلومات التواصل</h2>
+
+        <div class="contact-grid">
+            <a href="https://wa.me/201060572506" target="_blank" class="contact-icon">
+                <img src="whatsapp1.png" alt="WhatsApp" />
+            </a>
+            <a href="mailto:r_ranya44@hotmail.com" class="contact-icon">
+                <img src="email.png" alt="Email" />
+            </a>
+            <a href="https://www.youtube.com/@ZeyadAshraf312" target="_blank" class="contact-icon">
+                <img src="youtube.png" alt="YouTube" />
+            </a>
+            <a href="https://www.linkedin.com/in/rania-saleh-933b062b6/" target="_blank" class="contact-icon">
+                <img src="linkedin.png" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/RanyaAbdelrahman" target="_blank" class="contact-icon">
+                <img src="github.jpg" alt="GitHub" />
+            </a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/201060572506" class="floating-whatsapp" target="_blank">
+        <img src="whatsapp1.png" alt="WhatsApp" />
+    </a>
+
+    <footer>
+        <p>© 2025 Code Wonders Academy | Designed by Rania Abdelrahman</p>
+    </footer>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>
